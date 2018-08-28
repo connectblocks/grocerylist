@@ -10,9 +10,10 @@ const GroceryInMyCart = ({ purchasedList, handleRemove } ) => {
       >Remove</button>
     </li>
   ));
-  
+
   return (
     <div>
+      In My Cart
       {purchased}  
     </div>
   ) 
