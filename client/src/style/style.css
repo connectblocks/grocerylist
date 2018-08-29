@@ -1,0 +1,72 @@
+body {
+  margin: 20px;
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+form {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+}
+
+label {
+    margin: 10px;
+    display: block;
+  
+}
+
+input {
+    padding: 5px;
+    display: block;
+    margin: auto;
+    width: 200px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px;
+  border-color: black;
+}
+
+.item {
+  margin: 10px;
+  padding: 20px;
+  background-color: floralwhite;
+  min-width: 300px;
+  min-height: 300px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: green; /* Green */
+  border-radius: 5px;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  vertical-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: .8em;
+}
+
+.remove {
+  background-color: red;
+}
+
+.add {
+  background-color: blue;
+}
+
+span {
+  float: left;
+  clear: left;
+  padding: 5px 20px;
+  margin: 4px 2px;
+}
+

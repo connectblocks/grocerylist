@@ -1,3 +1,4 @@
+import './style/style.css';
 import React from 'react';
 import GroceryInMyCart from './components/GroceryInMyCart';
 import GroceryNeedtoBuy from './components/GroceryNeedtoBuy';
@@ -17,7 +18,7 @@ class App extends React.Component {
 
   handleAddtoList(event) {
     event.preventDefault();
-    if(this.state.groceryList.indexOf(this.state.groceryItem) < 0) {
+    if(this.state.groceryList.indexOf(this.state.groceryItem) < 0 && this.state.purchasedList.indexOf(this.state.groceryItem) < 0)  {
        this.setState({
          groceryList: [ ...this.state.groceryList, this.state.groceryItem ],
          groceryItem: ''
@@ -52,21 +53,22 @@ class App extends React.Component {
     return (
     <div>
         <form>
-          <label>Add an item to your grocery list:
+          <label><b>Add an item to your grocery list:</b></label>
             <input 
               type="text" 
               value={this.state.groceryItem}
               onChange={(event) => (this.setState({groceryItem: event.target.value}))}
               />
-          </label>
-          <input 
-            type="submit" 
-            value="Submit" 
-            onClick={this.handleAddtoList}
-          />
+          <button className="add" onClick={this.handleAddtoList}>Submit</button>
         </form>
-      <GroceryNeedtoBuy groceryList={this.state.groceryList} handlePurchase={this.handlePurchase}/>
-      <GroceryInMyCart purchasedList={this.state.purchasedList} handleRemove={this.handleRemove}/>
+      <div className="container"> 
+        <div className="item">
+          <GroceryNeedtoBuy groceryList={this.state.groceryList} handlePurchase={this.handlePurchase}/>
+        </div>
+        <div className="item">
+          <GroceryInMyCart purchasedList={this.state.purchasedList} handleRemove={this.handleRemove}/>
+        </div>
+      </div>
     </div>
     )
   }
