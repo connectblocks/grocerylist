@@ -70,3 +70,9 @@ span {
   margin: 4px 2px;
 }
 
+.listTitle {
+  padding: 5px;
+  font-weight: bold;
+  background-color: rgb(206, 228, 235);
+  border-radius: 3px;
+}

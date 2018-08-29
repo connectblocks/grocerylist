@@ -21,7 +21,6 @@ const GroceryNeedtoBuy = ({groceryList, handleChangeInGroceryList}) => {
   
   return (
     <div>
-      <b>Need to Buy</b>
       {needToBuy}
     </div>
   ); 

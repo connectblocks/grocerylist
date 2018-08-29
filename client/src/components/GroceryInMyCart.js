@@ -14,7 +14,6 @@ const GroceryInMyCart = ({ purchasedList, handleInCartRemove }) => {
 
   return (
     <div>
-      <b>In My Cart</b>
       {purchased}
     </div>
   ) 
