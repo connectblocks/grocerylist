@@ -1,12 +1,12 @@
 import React from 'react';
 
-const GroceryInMyCart = ({ purchasedList, handleRemove }) => {
+const GroceryInMyCart = ({ purchasedList, handleInCartRemove }) => {
   const purchased = purchasedList.map((item) => (
-    <div> 
-      <span key={item}>{item}</span>
+    <div key={item}> 
+      <span >{item}</span>
       <button className="remove" 
         value={item}
-        onClick={handleRemove}
+        onClick={handleInCartRemove}
         style={{float:'right'}}
       >Remove</button>
     </div>

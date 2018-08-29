@@ -12,8 +12,8 @@ class App extends React.Component {
       purchasedList: []
     }
     this.handleAddtoList = this.handleAddtoList.bind(this);
-    this.handlePurchase = this.handlePurchase.bind(this);
-    this.handleRemove=this.handleRemove.bind(this);
+    this.handleChangeInGroceryList = this.handleChangeInGroceryList.bind(this);
+    this.handleInCartRemove = this.handleInCartRemove.bind(this);
   }
 
   handleAddtoList(event) {
@@ -29,17 +29,23 @@ class App extends React.Component {
     }
   }
 
-  handlePurchase(event) {
+  handleChangeInGroceryList(event) { 
     const newGroceryList = this.state.groceryList.slice();
     newGroceryList.splice( newGroceryList.indexOf(event.target.value), 1 );
 
-    this.setState({
-      purchasedList: [ ...this.state.purchasedList, event.target.value ],
-      groceryList: newGroceryList
-    });
+    if(event.target.name === 'add') {
+      this.setState({
+        purchasedList: [ ...this.state.purchasedList, event.target.value ],
+        groceryList: newGroceryList
+      });
+    } else if (event.target.name === 'remove') {
+      this.setState({
+        groceryList: newGroceryList
+       });
+    }
   }
 
-  handleRemove(event) {
+  handleInCartRemove(event) {
     const newPurchasedList = this.state.purchasedList.slice();
     newPurchasedList.splice( newPurchasedList.indexOf(event.target.value), 1 );
 
@@ -63,10 +69,10 @@ class App extends React.Component {
         </form>
       <div className="container"> 
         <div className="item">
-          <GroceryNeedtoBuy groceryList={this.state.groceryList} handlePurchase={this.handlePurchase}/>
+          <GroceryNeedtoBuy groceryList={this.state.groceryList} handleChangeInGroceryList={this.handleChangeInGroceryList}/>
         </div>
         <div className="item">
-          <GroceryInMyCart purchasedList={this.state.purchasedList} handleRemove={this.handleRemove}/>
+          <GroceryInMyCart purchasedList={this.state.purchasedList} handleInCartRemove={this.handleInCartRemove}/>
         </div>
       </div>
     </div>
