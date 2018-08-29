@@ -18,12 +18,13 @@ class App extends React.Component {
 
   handleAddtoList(event) {
     event.preventDefault();
-    if(this.state.groceryList.indexOf(this.state.groceryItem) < 0 && this.state.purchasedList.indexOf(this.state.groceryItem) < 0)  {
+    if(this.state.groceryItem === '') {
+      alert(`please enter the item`);
+    } else if (this.state.groceryList.indexOf(this.state.groceryItem) < 0 && this.state.purchasedList.indexOf(this.state.groceryItem) < 0)  {
       this.setState({
         groceryList: [ ...this.state.groceryList, this.state.groceryItem ],
         groceryItem: ''
       })
-      alert(`${this.state.groceryItem} is added to the grocery list`);
     } else {
       alert(`${this.state.groceryItem} is already on your grocery list`);
     }
@@ -67,9 +68,11 @@ class App extends React.Component {
         </form>
         <div className="container"> 
           <div className="item">
+            <div className="listTitle">Need to Buy</div>
             <GroceryNeedtoBuy groceryList={this.state.groceryList} handleChangeInGroceryList={this.handleChangeInGroceryList}/>
           </div>
           <div className="item">
+            <div className="listTitle">In My Cart</div>
             <GroceryInMyCart purchasedList={this.state.purchasedList} handleInCartRemove={this.handleInCartRemove}/>
           </div>
         </div>
