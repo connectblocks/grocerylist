@@ -11,16 +11,16 @@ form {
 }
 
 label {
-    margin: 10px;
-    display: block;
+  margin: 10px;
+  display: block;
   
 }
 
 input {
-    padding: 5px;
-    display: block;
-    margin: auto;
-    width: 200px;
+  padding: 5px;
+  display: block;
+  margin: auto;
+  width: 200px;
 }
 
 .container {

@@ -24,7 +24,7 @@ const GroceryNeedtoBuy = ({groceryList, handleChangeInGroceryList}) => {
       <b>Need to Buy</b>
       {needToBuy}
     </div>
-  ) 
+  ); 
 };
 
 export default GroceryNeedtoBuy;

@@ -19,10 +19,10 @@ class App extends React.Component {
   handleAddtoList(event) {
     event.preventDefault();
     if(this.state.groceryList.indexOf(this.state.groceryItem) < 0 && this.state.purchasedList.indexOf(this.state.groceryItem) < 0)  {
-       this.setState({
-         groceryList: [ ...this.state.groceryList, this.state.groceryItem ],
-         groceryItem: ''
-       })
+      this.setState({
+        groceryList: [ ...this.state.groceryList, this.state.groceryItem ],
+        groceryItem: ''
+      })
       alert(`${this.state.groceryItem} is added to the grocery list`);
     } else {
       alert(`${this.state.groceryItem} is already on your grocery list`);
@@ -32,7 +32,6 @@ class App extends React.Component {
   handleChangeInGroceryList(event) { 
     const newGroceryList = this.state.groceryList.slice();
     newGroceryList.splice( newGroceryList.indexOf(event.target.value), 1 );
-
     if(event.target.name === 'add') {
       this.setState({
         purchasedList: [ ...this.state.purchasedList, event.target.value ],
@@ -48,7 +47,6 @@ class App extends React.Component {
   handleInCartRemove(event) {
     const newPurchasedList = this.state.purchasedList.slice();
     newPurchasedList.splice( newPurchasedList.indexOf(event.target.value), 1 );
-
     this.setState({
       groceryList: [ ...this.state.groceryList, event.target.value ],
       purchasedList: newPurchasedList
@@ -57,7 +55,7 @@ class App extends React.Component {
 
   render() {
     return (
-    <div>
+      <div>
         <form>
           <label><b>Add an item to your grocery list:</b></label>
             <input 
@@ -67,15 +65,15 @@ class App extends React.Component {
               />
           <button className="add" onClick={this.handleAddtoList}>Submit</button>
         </form>
-      <div className="container"> 
-        <div className="item">
-          <GroceryNeedtoBuy groceryList={this.state.groceryList} handleChangeInGroceryList={this.handleChangeInGroceryList}/>
-        </div>
-        <div className="item">
-          <GroceryInMyCart purchasedList={this.state.purchasedList} handleInCartRemove={this.handleInCartRemove}/>
+        <div className="container"> 
+          <div className="item">
+            <GroceryNeedtoBuy groceryList={this.state.groceryList} handleChangeInGroceryList={this.handleChangeInGroceryList}/>
+          </div>
+          <div className="item">
+            <GroceryInMyCart purchasedList={this.state.purchasedList} handleInCartRemove={this.handleInCartRemove}/>
+          </div>
         </div>
       </div>
-    </div>
     )
   }
 }
