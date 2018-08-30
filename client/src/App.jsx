@@ -1,7 +1,6 @@
 import './style/style.css';
 import React from 'react';
-import GroceryInMyCart from './components/GroceryInMyCart';
-import GroceryNeedtoBuy from './components/GroceryNeedtoBuy';
+import GroceryListView from './components/GroceryListView';
 
 class App extends React.Component {
   constructor(props) {
@@ -69,11 +68,11 @@ class App extends React.Component {
         <div className="container"> 
           <div className="item">
             <div className="listTitle">Need to Buy</div>
-            <GroceryNeedtoBuy groceryList={this.state.groceryList} handleChangeInGroceryList={this.handleChangeInGroceryList}/>
+            <GroceryListView list={this.state.groceryList} handleChange={this.handleChangeInGroceryList} name={'addItem'}/>
           </div>
           <div className="item">
             <div className="listTitle">In My Cart</div>
-            <GroceryInMyCart purchasedList={this.state.purchasedList} handleInCartRemove={this.handleInCartRemove}/>
+            <GroceryListView list={this.state.purchasedList} handleChange={this.handleInCartRemove} name={'inMyCart'}/>
           </div>
         </div>
       </div>
